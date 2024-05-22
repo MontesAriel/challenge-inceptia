@@ -8,7 +8,6 @@ const FiltroBusqueda: FC<FiltroBusquedaProps> = ({onSearch}) => {
 
     const handleSearch = () => {
         const inputElement = document.getElementById("searchId") as HTMLInputElement;
-        console.log({inputElement})
         if (onSearch) {
           onSearch(inputElement.value);
         }

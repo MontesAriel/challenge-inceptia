@@ -26,7 +26,7 @@ const ContenedorTabla: React.FC = () => {
     };
 
     return(
-        <div className="flex flex-col border rounded-sm border-slate-50	">
+        <div className="flex flex-col border rounded-sm border-slate-100	">
             <FiltroBusqueda onSearch={handleSearch}/>
             <FiltroFecha onDateChange={handleDateChange}/>
             <FiltroEstado onStateChange={handleStateChange}/>
