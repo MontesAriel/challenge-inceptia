@@ -18,7 +18,7 @@ const Clientes: React.FC = () => {
             Authorization:`JWT ${user?.token}`,
           },
         });
-        console.log({response})
+
         dispatch(setClients(response.data));
 
       } catch (error) {

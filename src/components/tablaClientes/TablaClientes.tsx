@@ -31,7 +31,6 @@ const TablaClientes: React.FC<TablaClientesProps> = ({ searchQuery, dateFrom, da
   if (infoClients.length > 0) {
     // Show all cases from all clients
     casesToShow = infoClients.flatMap(client => client);
-    console.log({casesToShow})
   } else if (selectedClientId === null) {
     // Show all cases from all clients
     casesToShow = clients.flatMap(client => client);
@@ -97,8 +96,6 @@ const TablaClientes: React.FC<TablaClientesProps> = ({ searchQuery, dateFrom, da
       setCurrentPage(currentPage - 1);
     }
   };
-
-  console.log({currentRows})
 
   return (
     <>
