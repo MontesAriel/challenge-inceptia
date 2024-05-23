@@ -171,7 +171,7 @@ const TablaClientes: React.FC<TablaClientesProps> = ({ searchQuery, dateFrom, da
         </div>
       </div>
 
-      {viewBot && <BotMensajes setViewBot={setViewBot} responseBot={{ responses: infoBot }} />}
+      {viewBot && <BotMensajes setViewBot={setViewBot} responseBot={infoBot } />}
 
     </>
   );

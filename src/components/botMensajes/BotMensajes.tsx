@@ -1,15 +1,7 @@
 interface BotMensajesProps {
     setViewBot: (view: boolean) => void;
-    responseBot: ResponseBot;
-}
-interface ResponseBot {
-    responses: Response[];
 }
 
-interface Response {
-    text: string;
-    time: number;
-}
 
 const BotMensajes: React.FC<BotMensajesProps> = ({setViewBot, responseBot}) => {
 
@@ -35,7 +27,7 @@ const BotMensajes: React.FC<BotMensajesProps> = ({setViewBot, responseBot}) => {
         return formattedDate;
       }
       
-
+      console.log({responseBot})
 // Formatear la fecha y hora
 
     return(
