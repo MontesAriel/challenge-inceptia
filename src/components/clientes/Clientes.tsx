@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const Clientes: React.FC = () => {
   const clients = useSelector((state: RootState) => state.client.clients);
-  const user = useSelector(state => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
   

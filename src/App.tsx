@@ -7,10 +7,11 @@ import Home from './pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './components/loader/Loader';
+import { RootState } from './app/store';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(false); // State to manage loading
-  const user = useSelector(state => state.user);
+  const [loading, setLoading] = useState(false); 
+  const user = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
 
