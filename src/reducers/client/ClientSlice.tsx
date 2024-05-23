@@ -1,39 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// interface Case {
-//   id: number;
-//   case_uuid: string;
-//   phone: number;
-//   case_result: { name: string };
-//   case_duration: string;
-//   last_updated: string;
-// }
 
 interface Client {
   id: number;
   name: string;
-  // cases: Case[];
 }
 
+interface CaseLog {
+  responses: any[]; // Adjust the type based on your actual data
+}
+
+interface Case {
+  id: number;
+  case_uuid: string;
+  phone: number;
+  case_result: { name: string };
+  case_log: CaseLog;
+  case_duration: string;
+  last_updated: string;
+}
 interface ClientState {
   clients: Client[];
   selectedClientId: number | null;
   selectedClients: Client[];
-  clientData: ApiResponse[];
+  clientData: Case[];
 }
 
-interface ApiResponse {
-  results: {
-    id: number;
-    case_uuid: string;
-    phone: number;
-    case_result: { name: string };
-    case_duration: string;
-    last_updated: string;
-    status: string;
-    bot: { id: number; name: string; alias: string };
-  }[];
-}
 
 const initialState: ClientState = {
   clients: [],
@@ -49,8 +41,8 @@ const clientSlice = createSlice({
     setClients(state, action: PayloadAction<Client[]>) {
       state.clients = action.payload;
     },
-    setDataClient(state, action: PayloadAction<ApiResponse[]>){
-        state.clientData = action.payload
+    setDataClient(state, action: PayloadAction<Case[]>) {
+      state.clientData = action.payload;
     },
     selectClient(state, action: PayloadAction<number | null>) {
       state.selectedClientId = action.payload;

@@ -74,9 +74,11 @@ const TablaClientes: React.FC<TablaClientesProps> = ({ searchQuery, dateFrom, da
     setViewBot(true);
     const bot = infoClients.find((client) => client.id == id);
     if (bot) {
-      setInfoBot(bot.case_log);
+      setInfoBot(bot.case_log.responses);
     }
   }
+
+  console.log({infoClients  })
 
   // Paginación
   const indexOfLastRow = currentPage * rowsPerPage;
