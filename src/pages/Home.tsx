@@ -3,11 +3,12 @@ import Clientes from "../components/clientes/Clientes"
 import ContenedorTabla from "../components/contenedorTabla/ContenedorTabla"
 import { useNavigate } from "react-router-dom"
 import { unsetUser } from "../reducers/user/userSlice"
+import { RootState } from "../storeReduce/store"
 
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user);
+    const user = useSelector((state: RootState) => state.user);
 
     const handleLogout = () => {
         dispatch(unsetUser());

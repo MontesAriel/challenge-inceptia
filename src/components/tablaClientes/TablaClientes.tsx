@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../app/store';
+import { RootState } from '../../storeReduce/store';
 import BotMensajes from '../botMensajes/BotMensajes';
 
 interface TablaClientesProps {
@@ -74,10 +74,10 @@ const TablaClientes: React.FC<TablaClientesProps> = ({ searchQuery, dateFrom, da
     setViewBot(true);
     const bot = infoClients.find((client) => client.id == id);
     if (bot) {
-      setInfoBot(bot.case_log);
+      setInfoBot(bot.case_log.responses);
     }
   }
-
+  console.log({infoClients})
   // Paginación
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;

@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../app/store';
+import { RootState } from '../../storeReduce/store';
 import { selectClient, clearSelectedClients, setClients } from '../../reducers/client/ClientSlice';
 import axios from 'axios';
 import { useEffect } from 'react';
 
 const Clientes: React.FC = () => {
   const clients = useSelector((state: RootState) => state.client.clients);
-  const user = useSelector(state => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
   

@@ -1,7 +1,12 @@
 interface BotMensajesProps {
     setViewBot: (view: boolean) => void;
+    responseBot: CaseLog[];
 }
 
+interface CaseLog {
+    text: string;
+    time: number;
+}
 
 const BotMensajes: React.FC<BotMensajesProps> = ({setViewBot, responseBot}) => {
 
@@ -38,7 +43,7 @@ const BotMensajes: React.FC<BotMensajesProps> = ({setViewBot, responseBot}) => {
         <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
             <div className="modal-content py-6 text-left px-6">
             
-                {responseBot.responses.map((msj, index:number) =>(
+                {responseBot.map((msj, index:number) =>(
                     <div key={index} className="flex items-center mt-5 p-2 border-b">
                         <img src="./bot.png" alt="bot" className="w-12 mr-5"/>
                         <div className="w-full">

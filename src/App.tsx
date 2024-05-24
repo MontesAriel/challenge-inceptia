@@ -7,17 +7,18 @@ import Home from './pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './components/loader/Loader';
+import { RootState } from './storeReduce/store';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(false); // State to manage loading
-  const user = useSelector(state => state.user);
+  const [loading, setLoading] = useState(false);
+  const user = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchClientDetails = async () => {
       if (user.token.length > 0) {
-        setLoading(true); // Set loading to true before fetching data
+        setLoading(true); 
         try {
           const response = await axios.get(`https://admindev.inceptia.ai/api/v1/inbound-case/?bot=28`, {
             headers: {
@@ -33,7 +34,7 @@ const App: React.FC = () => {
         } catch (error) {
           console.error('Error fetching client details:', error);
         } finally {
-          setLoading(false); // Set loading to false after fetching data
+          setLoading(false);
         }
       }
     };
@@ -41,7 +42,7 @@ const App: React.FC = () => {
   }, [user.token, dispatch]);
 
   if (loading) {
-    return <Loader />; // Display loader while loading
+    return <Loader />;
   }
 
   return (
