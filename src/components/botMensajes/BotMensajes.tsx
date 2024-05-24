@@ -11,29 +11,22 @@ interface CaseLog {
 const BotMensajes: React.FC<BotMensajesProps> = ({setViewBot, responseBot}) => {
 
     function formatTimestamp(timestamp:number) {
-        // Crear un objeto Date con el timestamp (multiplicado por 1000 porque Date espera milisegundos)
         const date = new Date(timestamp * 1000);
       
-        // Obtener los componentes de la fecha y hora
         const year = date.getFullYear();
-        const month = date.getMonth() + 1; // Los meses empiezan desde 0
+        const month = date.getMonth() + 1; 
         const day = date.getDate();
         const hours = date.getHours();
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
       
-        // Añadir ceros delante de los minutos y segundos si son menores a 10
         const paddedMinutes = minutes < 10 ? '0' + minutes : minutes;
         const paddedSeconds = seconds < 10 ? '0' + seconds : seconds;
       
-        // Formatear la fecha y hora
         const formattedDate = `${day}-${month}-${year} ${hours}:${paddedMinutes}:${paddedSeconds}`;
       
         return formattedDate;
-      }
-      
-      console.log({responseBot})
-// Formatear la fecha y hora
+    }
 
     return(
         <div className="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">

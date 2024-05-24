@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'build', // Carpeta de salida de la construcción
+    outDir: 'build', 
     rollupOptions: {
       input: 'src/main.tsx', 
       output: {
